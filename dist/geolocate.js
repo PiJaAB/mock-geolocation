@@ -1,3 +1,13 @@
+// These two if's exist for using this module with node-js. Since node does not
+// have window or navigator objects, the library attaches window and navigator
+// objects to the global variable.
+if ( typeof window === 'undefined' ) {
+  global.window = {}
+}
+if ( typeof navigator === 'undefined' ) {
+  global.navigator = {}
+}
+
 (function(window, navigator) {
     var exports = {},
         counterId = 0,
@@ -222,4 +232,4 @@
     } else if (typeof window !== 'undefined') {
         expose();
     }
-})(window, navigator);
+})( window, navigator );
